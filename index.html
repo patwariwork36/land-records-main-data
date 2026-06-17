@@ -679,6 +679,354 @@
             align-items: center;
             gap: 8px;
         }
+
+        /* ══ All Khasra List Tab — Premium Design ══════════ */
+        .ak-search-wrap {
+            position: relative;
+        }
+        .ak-search-wrap .ak-search-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            pointer-events: none;
+            transition: color 0.25s;
+        }
+        .ak-search-wrap:focus-within .ak-search-icon {
+            color: var(--royal-mid);
+        }
+        .ak-search-input {
+            width: 100%;
+            padding: 14px 18px 14px 46px;
+            border: 2px solid var(--border);
+            border-radius: 14px;
+            font-family: inherit;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-main);
+            background: #f8fafc;
+            outline: none;
+            transition: all 0.25s;
+        }
+        .ak-search-input:focus {
+            border-color: var(--royal-mid);
+            background: #fff;
+            box-shadow: 0 0 0 4px rgba(45, 45, 176, 0.10);
+        }
+        .ak-search-input::placeholder { color: #94a3b8; font-weight: 500; }
+
+        /* Summary Cards — Glassmorphism */
+        .ak-summary-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        .ak-stat {
+            background: rgba(255,255,255,0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.8);
+            border-radius: 16px;
+            padding: 18px 14px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .ak-stat:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(26,26,110,0.12);
+        }
+        .ak-stat::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 3px;
+            border-radius: 0 0 16px 16px;
+        }
+        .ak-stat:nth-child(1)::after { background: linear-gradient(90deg, #1a1a6e, #2d2db0); }
+        .ak-stat:nth-child(2)::after { background: linear-gradient(90deg, #059669, #34d399); }
+        .ak-stat:nth-child(3)::after { background: linear-gradient(90deg, #d97706, #fbbf24); }
+        .ak-stat:nth-child(4)::after { background: linear-gradient(90deg, #6366f1, #a78bfa); }
+        .ak-stat-icon {
+            font-size: 28px;
+            margin-bottom: 4px;
+        }
+        .ak-stat-label {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+        .ak-stat-val {
+            font-size: 28px;
+            font-weight: 900;
+            margin-top: 2px;
+        }
+
+        /* Group Sections */
+        .ak-group {
+            background: #fff;
+            border-radius: 18px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-card);
+            margin-bottom: 16px;
+            overflow: hidden;
+            animation: slideUp 0.4s ease both;
+        }
+        .ak-group-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 20px;
+            cursor: pointer;
+            user-select: none;
+            transition: background 0.2s;
+        }
+        .ak-group-header:hover {
+            filter: brightness(0.97);
+        }
+        .ak-group-title {
+            font-size: 15px;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .ak-group-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: rgba(255,255,255,0.3);
+            border: 1px solid rgba(255,255,255,0.4);
+            border-radius: 20px;
+            padding: 3px 12px;
+            font-size: 12px;
+            font-weight: 800;
+        }
+        .ak-group-chevron {
+            transition: transform 0.3s;
+            font-size: 18px;
+            opacity: 0.7;
+        }
+        .ak-group-chevron.collapsed {
+            transform: rotate(-90deg);
+        }
+        .ak-group-body {
+            overflow: hidden;
+            transition: max-height 0.35s ease;
+        }
+
+        /* Table Rows */
+        .ak-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .ak-table thead th {
+            padding: 10px 14px;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-muted);
+            background: #f8fafc;
+            border-bottom: 2px solid var(--border);
+            text-align: left;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+        .ak-table thead th:first-child { padding-left: 20px; }
+        .ak-row {
+            cursor: pointer;
+            transition: all 0.18s;
+            position: relative;
+        }
+        .ak-row::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 0;
+            transition: width 0.2s;
+            border-radius: 0;
+        }
+        .ak-row:hover::before {
+            width: 4px;
+        }
+        .ak-row:nth-child(even) { background: #fafbff; }
+        .ak-row:hover {
+            background: linear-gradient(90deg, #f0f0ff 0%, #fefefe 100%) !important;
+            box-shadow: inset 0 0 0 1px rgba(45,45,176,0.08);
+        }
+        .ak-row td {
+            padding: 12px 14px;
+            font-size: 14px;
+            border-bottom: 1px solid #f1f5f9;
+            vertical-align: middle;
+        }
+        .ak-row td:first-child { padding-left: 20px; }
+
+        /* Khasra Number Badge */
+        .ak-kn-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 52px;
+            padding: 6px 14px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 900;
+            font-family: 'Inter', monospace;
+            color: #fff;
+            background: linear-gradient(135deg, var(--royal) 0%, var(--royal-mid) 100%);
+            box-shadow: 0 2px 8px rgba(26,26,110,0.20);
+            letter-spacing: 0.02em;
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+        .ak-row:hover .ak-kn-badge {
+            transform: scale(1.08);
+            box-shadow: 0 4px 14px rgba(26,26,110,0.30);
+        }
+        .ak-kn-badge.highlight {
+            background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+            box-shadow: 0 2px 12px rgba(245,158,11,0.40);
+            animation: akPulse 1.5s ease infinite;
+        }
+        @keyframes akPulse {
+            0%, 100% { box-shadow: 0 2px 12px rgba(245,158,11,0.40); }
+            50% { box-shadow: 0 4px 20px rgba(245,158,11,0.60); }
+        }
+
+        /* Type Pill */
+        .ak-type-pill {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 800;
+        }
+        .ak-type-pill.sinchit { background: #d1fae5; color: #065f46; }
+        .ak-type-pill.asinchit { background: #ffedd5; color: #9a3412; }
+
+        /* Owner & Area text */
+        .ak-owner-text {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-main);
+            max-width: 200px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .ak-area-text {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+        /* Stat sub-value (area below count) */
+        .ak-stat-sub {
+            font-size: 12px;
+            font-weight: 700;
+            margin-top: 2px;
+            opacity: 0.7;
+        }
+        /* Fasal tags */
+        .ak-fasal-tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-size: 10px;
+            font-weight: 800;
+            margin: 1px 2px;
+            line-height: 1.4;
+        }
+        .ak-fasal-kharif { background: #fef3c7; color: #92400e; }
+        .ak-fasal-rabi { background: #dbeafe; color: #1e40af; }
+        .ak-fasal-dufasali { background: #d1fae5; color: #065f46; }
+        /* Nistar text */
+        .ak-nistar-text {
+            font-size: 11px;
+            font-weight: 600;
+            color: #6366f1;
+            max-width: 160px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .ak-nistar-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-size: 10px;
+            font-weight: 800;
+            background: #eef2ff;
+            color: #4338ca;
+            border: 1px solid #c7d2fe;
+        }
+        /* Detail sub-row */
+        .ak-detail-cell {
+            padding: 6px 20px 10px !important;
+            border-bottom: 1px solid #e8ecf3 !important;
+            background: #fafbff;
+        }
+        .ak-detail-flex {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .ak-area-unit {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-left: 2px;
+        }
+
+        /* No results */
+        .ak-no-results {
+            text-align: center;
+            padding: 56px 24px;
+            color: var(--text-muted);
+            font-size: 16px;
+            font-weight: 600;
+            background: #fff;
+            border-radius: 18px;
+            border: 2px dashed var(--border);
+        }
+
+        /* Responsive */
+        @media (max-width: 680px) {
+            .ak-summary-bar {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            .ak-stat { padding: 14px 10px; }
+            .ak-stat-val { font-size: 22px; }
+            .ak-stat-icon { font-size: 22px; }
+            .ak-row td { padding: 10px 10px; font-size: 13px; }
+            .ak-row td:first-child { padding-left: 14px; }
+            .ak-table thead th:first-child { padding-left: 14px; }
+            .ak-kn-badge { font-size: 14px; padding: 5px 10px; min-width: 42px; }
+            .ak-owner-text { max-width: 120px; font-size: 12px; }
+            .ak-group-header { padding: 12px 14px; }
+        }
+        @media (max-width: 480px) {
+            .ak-summary-bar { grid-template-columns: 1fr 1fr; }
+            .ak-stat { padding: 12px 8px; }
+            .ak-stat-val { font-size: 20px; }
+            .ak-stat-icon { font-size: 20px; }
+            .ak-table thead th { font-size: 10px; padding: 8px 8px; }
+            .ak-row td { padding: 8px 8px; font-size: 12px; }
+            .ak-kn-badge { font-size: 13px; padding: 4px 8px; min-width: 36px; }
+            .ak-owner-text { max-width: 80px; font-size: 11px; }
+            .ak-group-title { font-size: 13px; }
+        }
     </style>
     <!-- PapaParse for ultra-fast CSV streaming -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
@@ -745,6 +1093,9 @@
                 </button>
                 <button class="tab-btn" id="tab-gov" onclick="switchTab('gov')">
                     🏛️ शासकीय भूमि
+                </button>
+                <button class="tab-btn" id="tab-allKhasra" onclick="switchTab('allKhasra')">
+                    📋 खसरा सूची
                 </button>
             </div>
         </div>
@@ -850,6 +1201,8 @@
         <div id="cropDiv" style="display:none;"></div>
         <!-- Government Records View -->
         <div id="govDiv" style="display:none;"></div>
+        <!-- All Khasra List View -->
+        <div id="allKhasraDiv" style="display:none;"></div>
 
     </main>
 
@@ -1629,6 +1982,7 @@
             const isStat = tab === 'statistics';
             const isCrop = tab === 'crop';
             const isGov = tab === 'gov';
+            const isAllKhasra = tab === 'allKhasra';
 
             // Show/hide search form
             document.getElementById('searchForm').closest('.search-card').style.display = isSearch ? '' : 'none';
@@ -1636,7 +1990,7 @@
             document.getElementById('basraGroup').style.display = tab === 'basra' ? '' : 'none';
             document.getElementById('namGroup').style.display = tab === 'nam' ? '' : 'none';
 
-            ['khasra', 'basra', 'nam', 'statistics', 'crop', 'gov'].forEach(t => {
+            ['khasra', 'basra', 'nam', 'statistics', 'crop', 'gov', 'allKhasra'].forEach(t => {
                 const el = document.getElementById('tab-' + t);
                 if (el) el.className = 'tab-btn' + (tab === t ? ' active' : '');
             });
@@ -1647,6 +2001,7 @@
             document.getElementById('statisticsDiv').style.display = isStat ? '' : 'none';
             document.getElementById('cropDiv').style.display = isCrop ? '' : 'none';
             document.getElementById('govDiv').style.display = isGov ? '' : 'none';
+            document.getElementById('allKhasraDiv').style.display = isAllKhasra ? '' : 'none';
 
             if (isStat) {
                 showStatistics();
@@ -1659,6 +2014,7 @@
                 return;
             }
             if (isGov) { showGovRecords(); return; }
+            if (isAllKhasra) { showAllKhasra(); return; }
 
             // If village already chosen, re-populate basra / farmerList
             if (tab === 'basra' || tab === 'nam') {
@@ -1744,10 +2100,10 @@
 
         function cropLabelFromEntries(entries, fallback) {
             if (!entries || entries.length <= 1) return fallback || '—';
-            const parts = entries.map((e) => {
+            const parts = entries.map((e, i) => {
                 const c = (e.cropName || '').trim();
                 if (!c || c === '--') return null;
-                return c;
+                return (i + 1) + ') ' + c;
             }).filter(Boolean);
             return parts.length ? parts.join(' · ') : (fallback || '—');
         }
@@ -1764,27 +2120,6 @@
             if (ents.length > 1)
                 return cropLabelFromEntries(ents, r.finalRabiCrop);
             return r.finalRabiCrop || '—';
-        }
-
-        // Portfolio table: build kharif/rabi cell text including NA/Fallow DCS tags
-        function portfolioCropCellText(r, season) {
-            const entries = season === 'kharif' ? (r.dcsKharifEntries || []) : (r.dcsRabiEntries || []);
-            const tag = season === 'kharif' ? '(खरीफ DCS)' : '(रबी DCS)';
-            const fallback = season === 'kharif' ? (r.finalKharifCrop || '—') : (r.finalRabiCrop || '—');
-            if (!entries.length) return fallback;
-            const crops = [];
-            const naFallow = [];
-            entries.forEach(e => {
-                const c = (e.cropName || '').trim();
-                if (c && c !== '--') {
-                    crops.push(c);
-                } else {
-                    if (e.naLand === 'Yes') naFallow.push('NA ' + tag + ' ' + Number(e.naArea).toFixed(3) + ' हे.');
-                    if (e.fallowLand === 'Yes') naFallow.push('Fallow ' + tag + ' ' + Number(e.fallowArea).toFixed(3) + ' हे.');
-                }
-            });
-            const parts = [...crops, ...naFallow];
-            return parts.length ? parts.join(' · ') : fallback;
         }
 
         function kharifAreaForNamedCrop(r, cropName) {
@@ -1897,32 +2232,15 @@
                     '</div></div>';
             }
             let out = '';
-            kList.forEach((e) => {
-                const c = (e.cropName || '').trim();
+            kList.forEach((e, idx) => {
+                const c = e.cropName || '—';
                 const a = Number(e.cropArea).toFixed(3);
-                const hasCrop = c && c !== '--';
-                if (hasCrop) {
-                    // Real crop → show like a normal row with ☀️ खरीफ tag
-                    out += '<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">' +
-                        '<span style="font-size:11px; font-weight:700; color:#065f46; background:#d1fae5; border-radius:5px; padding:2px 8px;">☀️ खरीफ</span>' +
-                        '<div style="flex:1; display:flex; align-items:center; gap:8px; justify-content:flex-end; flex-wrap:wrap;">' +
-                        '<span style="font-size:13px; font-weight:700; color:var(--text-main);">' + c + '</span>' +
-                        '<span style="font-size:12px; font-weight:600; color:var(--text-muted);">' + a + ' हे.</span>' +
-                        '<span style="background:#dbeafe;color:#1e40af;border:1px solid #93c5fd;border-radius:5px;padding:1px 7px;font-size:10px;font-weight:800;">DCS</span>' +
-                        '</div></div>';
-                } else {
-                    // No crop — show NA/Fallow inline with (खरीफ DCS) tag
-                    const bits = [];
-                    if (e.naLand === 'Yes') bits.push({ label: 'NA', area: Number(e.naArea).toFixed(3) });
-                    if (e.fallowLand === 'Yes') bits.push({ label: 'Fallow', area: Number(e.fallowArea).toFixed(3) });
-                    bits.forEach(b => {
-                        out += '<div style="display:flex; justify-content:space-between; align-items:center; background:#fef3c7; border-radius:6px; padding:5px 10px; margin-bottom:4px;">' +
-                            '<span style="font-size:11px; font-weight:700; color:#92400e;">' + b.label +
-                            ' <span style="background:#dbeafe;color:#1e40af;border:1px solid #93c5fd;border-radius:4px;padding:1px 6px;font-size:10px;font-weight:800;margin-left:4px;">(खरीफ DCS)</span></span>' +
-                            '<span style="font-size:12px; font-weight:800; color:#78350f;">' + b.area + ' हे.</span>' +
-                            '</div>';
-                    });
-                }
+                out += '<div style="background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:8px 10px;margin-bottom:6px;">' +
+                    '<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;">' +
+                    '<span style="font-size:10px;font-weight:800;color:#166534;text-transform:uppercase;letter-spacing:0.04em;">☀️ DCS खरीफ ' + (idx + 1) + '/' + kList.length + '</span>' +
+                    '<span style="font-size:12px;font-weight:800;color:var(--text-main);">' + c + ' <span style="color:#64748b;font-weight:700;">· ' + a + ' हे.</span></span>' +
+                    '<span style="background:#dbeafe;color:#1e40af;border:1px solid #93c5fd;border-radius:5px;padding:1px 7px;font-size:10px;font-weight:800;">DCS</span>' +
+                    '</div>' + dcsEntryNaFallowLine(e) + '</div>';
             });
             return out;
         }
@@ -1949,32 +2267,14 @@
                     '</div></div>';
             }
             let out = '';
-            rList.forEach((e) => {
-                const c = (e.cropName || '').trim();
+            rList.forEach((e, idx) => {
+                const c = e.cropName || '—';
                 const a = Number(e.cropArea).toFixed(3);
-                const hasCrop = c && c !== '--';
-                if (hasCrop) {
-                    // Real crop → show like a normal row with ❄️ रबी tag
-                    out += '<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">' +
-                        '<span style="font-size:11px; font-weight:700; color:#1e40af; background:#dbeafe; border-radius:5px; padding:2px 8px;">❄️ रबी</span>' +
-                        '<div style="flex:1; display:flex; align-items:center; gap:8px; justify-content:flex-end; flex-wrap:wrap;">' +
-                        '<span style="font-size:13px; font-weight:700; color:var(--text-main);">' + c + '</span>' +
-                        '<span style="font-size:12px; font-weight:600; color:var(--text-muted);">' + a + ' हे.</span>' +
-                        '<span style="background:#dbeafe;color:#1e40af;border:1px solid #93c5fd;border-radius:5px;padding:1px 7px;font-size:10px;font-weight:800;">DCS</span>' +
-                        '</div></div>';
-                } else {
-                    // No crop — show NA/Fallow inline with (रबी DCS) tag
-                    const bits = [];
-                    if (e.naLand === 'Yes') bits.push({ label: 'NA', area: Number(e.naArea).toFixed(3) });
-                    if (e.fallowLand === 'Yes') bits.push({ label: 'Fallow', area: Number(e.fallowArea).toFixed(3) });
-                    bits.forEach(b => {
-                        out += '<div style="display:flex; justify-content:space-between; align-items:center; background:#dbeafe; border-radius:6px; padding:5px 10px; margin-bottom:4px;">' +
-                            '<span style="font-size:11px; font-weight:700; color:#1e40af;">' + b.label +
-                            ' <span style="background:#1e40af;color:#fff;border-radius:4px;padding:1px 6px;font-size:10px;font-weight:800;margin-left:4px;">(रबी DCS)</span></span>' +
-                            '<span style="font-size:12px; font-weight:800; color:#1e3a8a;">' + b.area + ' हे.</span>' +
-                            '</div>';
-                    });
-                }
+                out += '<div style="background:#eff6ff;border:1px solid #93c5fd;border-radius:8px;padding:8px 10px;margin-bottom:6px;">' +
+                    '<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;">' +
+                    '<span style="font-size:10px;font-weight:800;color:#1e40af;text-transform:uppercase;letter-spacing:0.04em;">❄️ DCS रबी ' + (idx + 1) + '/' + rList.length + '</span>' +
+                    '<span style="font-size:12px;font-weight:800;color:var(--text-main);">' + c + ' <span style="color:#64748b;font-weight:700;">· ' + a + ' हे.</span></span>' +
+                    '</div>' + dcsEntryNaFallowLine(e) + '</div>';
             });
             return out;
         }
@@ -2239,20 +2539,8 @@
                 printKharifRows = `<tr><th>☀️ खरीफ फसल</th><td>${(kEnt[0].cropName || r.finalKharifCrop || '—')} &nbsp;<span style="background:#dbeafe;color:#1e40af;border-radius:5px;padding:2px 8px;font-size:12px;font-weight:800;">DCS</span></td></tr>
   <tr><th>☀️ खरीफ रकबा</th><td>${Number(kEnt[0].cropArea).toFixed(3)} हे.</td></tr>`;
             } else if (r.kharifSource === 'DCS' && kEnt.length > 1) {
-                printKharifRows = kEnt.map((e) => {
-                    const c = (e.cropName || '').trim();
-                    const a = Number(e.cropArea).toFixed(3);
-                    const hasCrop = c && c !== '--';
-                    if (hasCrop) {
-                        return `<tr><th>☀️ खरीफ फसल</th><td>${c} &nbsp;<span style="background:#dbeafe;color:#1e40af;border-radius:5px;padding:2px 8px;font-size:12px;font-weight:800;">DCS</span></td></tr>
-  <tr><th>☀️ खरीफ रकबा</th><td>${a} हे.</td></tr>`;
-                    } else {
-                        const bits = [];
-                        if (e.naLand === 'Yes') bits.push({ label: 'NA', area: Number(e.naArea).toFixed(3) });
-                        if (e.fallowLand === 'Yes') bits.push({ label: 'Fallow', area: Number(e.fallowArea).toFixed(3) });
-                        return bits.map(b => `<tr><th>🏢 ${b.label} <span style="background:#dbeafe;color:#1e40af;border-radius:4px;padding:1px 6px;font-size:11px;font-weight:800;">(खरीफ DCS)</span></th><td>${b.area} हे.</td></tr>`).join('\n  ');
-                    }
-                }).join('\n  ');
+                printKharifRows = kEnt.map((e, i) => `<tr><th>☀️ खरीफ DCS ${i + 1}/${kEnt.length}</th><td>${e.cropName || '—'} &nbsp;<span style="background:#dbeafe;color:#1e40af;border-radius:5px;padding:2px 8px;font-size:12px;font-weight:800;">DCS</span></td></tr>
+  <tr><th>☀️ खरीफ ${i + 1} रकबा</th><td>${Number(e.cropArea).toFixed(3)} हे.</td></tr>`).join('\n  ');
             } else {
                 printKharifRows = '<tr><th>☀️ खरीफ फसल</th><td>—</td></tr>';
             }
@@ -2262,20 +2550,8 @@
                 printRabiRows = `<tr><th>❄️ रबी फसल</th><td>${rEnt[0].cropName || r.finalRabiCrop || '—'}</td></tr>
   <tr><th>❄️ रबी रकबा</th><td>${Number(rEnt[0].cropArea).toFixed(3)} हे.</td></tr>`;
             } else if (rEnt.length > 1) {
-                printRabiRows = rEnt.map((e) => {
-                    const c = (e.cropName || '').trim();
-                    const a = Number(e.cropArea).toFixed(3);
-                    const hasCrop = c && c !== '--';
-                    if (hasCrop) {
-                        return `<tr><th>❄️ रबी फसल</th><td>${c} &nbsp;<span style="background:#dbeafe;color:#1e40af;border-radius:5px;padding:2px 8px;font-size:12px;font-weight:800;">DCS</span></td></tr>
-  <tr><th>❄️ रबी रकबा</th><td>${a} हे.</td></tr>`;
-                    } else {
-                        const bits = [];
-                        if (e.naLand === 'Yes') bits.push({ label: 'NA', area: Number(e.naArea).toFixed(3) });
-                        if (e.fallowLand === 'Yes') bits.push({ label: 'Fallow', area: Number(e.fallowArea).toFixed(3) });
-                        return bits.map(b => `<tr><th>🏢 ${b.label} <span style="background:#1e40af;color:#fff;border-radius:4px;padding:1px 6px;font-size:11px;font-weight:800;">(रबी DCS)</span></th><td>${b.area} हे.</td></tr>`).join('\n  ');
-                    }
-                }).join('\n  ');
+                printRabiRows = rEnt.map((e, i) => `<tr><th>❄️ रबी DCS ${i + 1}/${rEnt.length}</th><td>${e.cropName || '—'}</td></tr>
+  <tr><th>❄️ रबी ${i + 1} रकबा</th><td>${Number(e.cropArea).toFixed(3)} हे.</td></tr>`).join('\n  ');
             } else {
                 printRabiRows = '<tr><th>❄️ रबी फसल</th><td>—</td></tr>';
             }
@@ -2343,9 +2619,9 @@
                 <td>${r.owner}</td>
                 <td style="text-align:right;font-weight:800;">${r.area}</td>
                 <td>${r.type || '—'}</td>
-                 <td>${portfolioCropCellText(r, 'kharif')}</td>
+                <td>${kharifCropLabel(r)}</td>
                 <td style="text-align:right;">${r.kharifCropAreaSum || r.kharifCropArea || '0'}</td>
-                 <td>${portfolioCropCellText(r, 'rabi')}</td>
+                <td>${rabiCropLabel(r)}</td>
                 <td style="text-align:right;">${r.rabiCropAreaSum || r.rabiCropArea || '0'}</td>
                 <td style="text-align:right; font-weight:800; color:#3730a3;">${r.dufasaliArea || '0'}</td>
                 <td>${r.naLandK === 'Yes' ? r.naAreaK + ' हे.' : '—'}</td>
@@ -2448,9 +2724,9 @@
                 <td style="text-align:center;">${r.bn}</td>
                 <td style="text-align:right;font-weight:800;">${r.area}</td>
                 <td>${r.type || '—'}</td>
-                 <td>${portfolioCropCellText(r, 'kharif')}</td>
+                <td>${kharifCropLabel(r)}</td>
                 <td style="text-align:right;">${r.kharifCropAreaSum || r.kharifCropArea || '0'}</td>
-                 <td>${portfolioCropCellText(r, 'rabi')}</td>
+                <td>${rabiCropLabel(r)}</td>
                 <td style="text-align:right;">${r.rabiCropAreaSum || r.rabiCropArea || '0'}</td>
                 <td style="text-align:right; font-weight:800; color:#3730a3;">${r.dufasaliArea || '0'}</td>
                 <td>${r.naLandK === 'Yes' ? r.naAreaK + ' हे.' : '—'}</td>
@@ -4055,6 +4331,342 @@ ${uniqueBasras ? `<p style="text-align:center;font-size:13px;margin-top:-15px;ma
             const totalDiv = document.getElementById('statGramTotal');
             if (totalDiv) totalDiv.style.display = 'flex';
             if (placeholder) placeholder.style.display = 'none';
+        }
+
+        // ══════════════════════════════════════════════════════════════
+        // ── खसरा सूची (All Khasra List) — Premium Grouped Table ──────
+        // ══════════════════════════════════════════════════════════════
+
+        // Gradient colors for group headers (cycles)
+        const AK_GROUP_COLORS = [
+            { bg: 'linear-gradient(135deg, #1a1a6e 0%, #2d2db0 100%)', text: '#fff' },
+            { bg: 'linear-gradient(135deg, #065f46 0%, #059669 100%)', text: '#fff' },
+            { bg: 'linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%)', text: '#fff' },
+            { bg: 'linear-gradient(135deg, #b45309 0%, #d97706 100%)', text: '#fff' },
+            { bg: 'linear-gradient(135deg, #be123c 0%, #e11d48 100%)', text: '#fff' },
+            { bg: 'linear-gradient(135deg, #0369a1 0%, #0ea5e9 100%)', text: '#fff' },
+        ];
+        // Row left-border accent colors (matching groups)
+        const AK_ACCENT_COLORS = ['#2d2db0','#059669','#8b5cf6','#d97706','#e11d48','#0ea5e9'];
+
+        function showAllKhasra() {
+            const akDiv = document.getElementById('allKhasraDiv');
+            akDiv.style.display = '';
+
+            if (!records.length) {
+                akDiv.innerHTML = `<div style="text-align:center;padding:60px 0;color:var(--text-muted);font-size:16px;font-weight:600;">⏳ पहले डेटा लोड होने दें...</div>`;
+                return;
+            }
+
+            const desiredOrder = ['छेरकापुर (हल्का 28)', 'छड़िया (हल्का 28)', 'तिल्दा (हल्का 43)', 'गबौद (हल्का 43)'];
+            const grams = [...new Set(records.map(r => r.v).filter(Boolean))].sort((a, b) => {
+                const idxA = desiredOrder.indexOf(a);
+                const idxB = desiredOrder.indexOf(b);
+                return (idxA !== -1 ? idxA : 999) - (idxB !== -1 ? idxB : 999);
+            });
+
+            akDiv.innerHTML = `
+            <div style="animation:slideUp 0.4s ease both; max-width:900px; margin:0 auto;">
+              <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:20px;">
+                <h2 style="font-size:22px;font-weight:900;color:var(--royal);font-family:'Noto Sans Devanagari',sans-serif;display:flex;align-items:center;gap:10px;">
+                  <span style="display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--royal),var(--royal-mid));color:#fff;font-size:20px;">📋</span>
+                  ग्रामवार खसरा सूची
+                </h2>
+              </div>
+
+              <!-- Village Select + Search -->
+              <div class="search-card fade-in" style="margin-bottom:28px;">
+                <div style="display:grid; gap:18px;">
+                  <div>
+                    <label class="form-label">🏘️ ग्राम चुनें</label>
+                    <div class="select-wrap">
+                      <select id="akVillageSelect" class="form-select" onchange="renderAllKhasraGrid()">
+                        <option value="" disabled selected>— ग्राम चुनें —</option>
+                        ${grams.map(g => `<option value="${g}">${g}</option>`).join('')}
+                      </select>
+                    </div>
+                  </div>
+                  <div>
+                    <label class="form-label">🔍 खसरा नंबर खोजें</label>
+                    <div class="ak-search-wrap">
+                      <svg class="ak-search-icon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+                      </svg>
+                      <input type="text" id="akSearchInput" class="ak-search-input" placeholder="खसरा नंबर टाइप करें… (जैसे: 12 या 45/1)" oninput="filterAllKhasraGrid()" disabled>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Summary Stats -->
+              <div id="akSummary" style="display:none;">
+                <div class="ak-summary-bar">
+                  <div class="ak-stat">
+                    <div class="ak-stat-icon">📊</div>
+                    <div class="ak-stat-label">कुल खसरे</div>
+                    <div class="ak-stat-val" id="akTotalCount" style="color:var(--royal);">0</div>
+                  </div>
+                  <div class="ak-stat">
+                    <div class="ak-stat-icon">💧</div>
+                    <div class="ak-stat-label">सिंचित</div>
+                    <div class="ak-stat-val" id="akSinchitCount" style="color:#059669;">0</div>
+                    <div class="ak-stat-sub" id="akSinchitArea" style="color:#059669;">0 हे.</div>
+                  </div>
+                  <div class="ak-stat">
+                    <div class="ak-stat-icon">🏜️</div>
+                    <div class="ak-stat-label">असिंचित</div>
+                    <div class="ak-stat-val" id="akAsinchitCount" style="color:#d97706;">0</div>
+                    <div class="ak-stat-sub" id="akAsinchitArea" style="color:#d97706;">0 हे.</div>
+                  </div>
+                  <div class="ak-stat">
+                    <div class="ak-stat-icon">📐</div>
+                    <div class="ak-stat-label">कुल रकबा (हे.)</div>
+                    <div class="ak-stat-val" id="akTotalArea" style="color:#6366f1;">0</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Search results count -->
+              <div id="akSearchInfo" style="display:none; margin-bottom:14px;">
+                <div id="akFilteredCount" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#fef3c7,#fff7ed);border:1px solid #fde68a;border-radius:12px;padding:10px 18px;font-size:14px;font-weight:700;color:#92400e;"></div>
+              </div>
+
+              <!-- Grouped Sections -->
+              <div id="akGridContainer"></div>
+            </div>`;
+        }
+
+        window._akFullList = [];
+        window._akSearchQuery = '';
+
+        function renderAllKhasraGrid() {
+            const gram = document.getElementById('akVillageSelect').value;
+            const searchInput = document.getElementById('akSearchInput');
+            const summary = document.getElementById('akSummary');
+            const gridContainer = document.getElementById('akGridContainer');
+            const searchInfo = document.getElementById('akSearchInfo');
+
+            if (!gram) {
+                summary.style.display = 'none';
+                gridContainer.innerHTML = '';
+                searchInput.disabled = true;
+                searchInput.value = '';
+                searchInfo.style.display = 'none';
+                return;
+            }
+
+            searchInput.disabled = false;
+            searchInput.value = '';
+            searchInfo.style.display = 'none';
+            window._akSearchQuery = '';
+
+            const gramRecs = records.filter(r => r.v === gram).sort((a, b) => {
+                const [a1, a2 = '0'] = String(a.kn).split('/');
+                const [b1, b2 = '0'] = String(b.kn).split('/');
+                return (parseInt(a1) - parseInt(b1)) || (parseInt(a2) - parseInt(b2));
+            });
+
+            window._akFullList = gramRecs;
+
+            const sinchitRecs = gramRecs.filter(r => r.type && r.type.includes('सिंचित') && !r.type.includes('असिंचित'));
+            const asinchitRecs = gramRecs.filter(r => r.type && r.type.includes('असिंचित'));
+            const sinchitCount = sinchitRecs.length;
+            const asinchitCount = asinchitRecs.length;
+            const sinchitArea = sinchitRecs.reduce((s, r) => s + parseFloat(r.area || 0), 0).toFixed(3);
+            const asinchitArea = asinchitRecs.reduce((s, r) => s + parseFloat(r.area || 0), 0).toFixed(3);
+            const totalArea = gramRecs.reduce((s, r) => s + parseFloat(r.area || 0), 0).toFixed(3);
+
+            document.getElementById('akTotalCount').textContent = gramRecs.length;
+            document.getElementById('akSinchitCount').textContent = sinchitCount;
+            document.getElementById('akSinchitArea').textContent = sinchitArea + ' हे.';
+            document.getElementById('akAsinchitCount').textContent = asinchitCount;
+            document.getElementById('akAsinchitArea').textContent = asinchitArea + ' हे.';
+            document.getElementById('akTotalArea').textContent = totalArea;
+            summary.style.display = '';
+
+            renderAkGroupedTable(gramRecs, '');
+            toast(`${gramRecs.length} खसरे दिखाए गए — ${gram}`, 'info');
+        }
+
+        function filterAllKhasraGrid() {
+            const q = (document.getElementById('akSearchInput').value || '').trim();
+            const searchInfo = document.getElementById('akSearchInfo');
+            const filteredCountEl = document.getElementById('akFilteredCount');
+            const all = window._akFullList || [];
+            window._akSearchQuery = q;
+
+            if (!q) {
+                renderAkGroupedTable(all, '');
+                searchInfo.style.display = 'none';
+                return;
+            }
+
+            const qClean = q.replace(/\s/g, '');
+            const filtered = all.filter(r => {
+                const kn = String(r.kn);
+                return kn === qClean || kn.startsWith(qClean) || kn.includes(qClean);
+            });
+
+            filteredCountEl.innerHTML = `🔍 <strong>"${q}"</strong> — ${filtered.length} खसरे मिले <span style="opacity:0.6;">(कुल ${all.length} में से)</span>`;
+            searchInfo.style.display = '';
+            renderAkGroupedTable(filtered, qClean);
+        }
+
+        function renderAkGroupedTable(list, highlightQ) {
+            const gridContainer = document.getElementById('akGridContainer');
+            if (!list.length) {
+                gridContainer.innerHTML = `<div class="ak-no-results">
+                    <div style="font-size:56px;margin-bottom:16px;">🔍</div>
+                    <div style="font-size:18px;font-weight:800;color:var(--text-main);margin-bottom:8px;">कोई खसरा नहीं मिला</div>
+                    <div style="font-size:13px;color:#94a3b8;">खोज बदलकर पुनः प्रयास करें</div>
+                </div>`;
+                return;
+            }
+
+            // Group by base number ranges (1-50, 51-100, etc.)
+            const GROUP_SIZE = 50;
+            const groups = {};
+            list.forEach(r => {
+                const baseNum = parseInt(String(r.kn).split('/')[0]) || 0;
+                const groupStart = Math.floor((baseNum - 1) / GROUP_SIZE) * GROUP_SIZE + 1;
+                const groupEnd = groupStart + GROUP_SIZE - 1;
+                const key = `${groupStart}-${groupEnd}`;
+                if (!groups[key]) groups[key] = { start: groupStart, end: groupEnd, items: [] };
+                groups[key].items.push(r);
+            });
+
+            const sortedGroups = Object.values(groups).sort((a, b) => a.start - b.start);
+            const isSearching = highlightQ.length > 0;
+
+            let html = '';
+            sortedGroups.forEach((grp, gi) => {
+                const color = AK_GROUP_COLORS[gi % AK_GROUP_COLORS.length];
+                const accent = AK_ACCENT_COLORS[gi % AK_ACCENT_COLORS.length];
+                const groupArea = grp.items.reduce((s, r) => s + parseFloat(r.area || 0), 0).toFixed(3);
+                const gId = `akGrp_${grp.start}`;
+
+                html += `<div class="ak-group" style="animation-delay:${(gi * 0.06).toFixed(2)}s;">`;
+                // Header
+                html += `<div class="ak-group-header" style="background:${color.bg};color:${color.text};" onclick="toggleAkGroup('${gId}')">
+                    <div class="ak-group-title">
+                        <span style="font-size:20px;">📄</span>
+                        <span>खसरा ${grp.start} — ${grp.end}</span>
+                        <span class="ak-group-badge">${grp.items.length} खसरे</span>
+                        <span class="ak-group-badge">📐 ${groupArea} हे.</span>
+                    </div>
+                    <span class="ak-group-chevron" id="chev_${gId}">▾</span>
+                </div>`;
+
+                // Body — Table
+                html += `<div class="ak-group-body" id="${gId}">`;
+                html += `<table class="ak-table">
+                    <thead><tr>
+                        <th>खसरा नं.</th>
+                        <th>क्षेत्रफल</th>
+                        <th>प्रकार</th>
+                        <th>भूमिस्वामी</th>
+                        <th>फसल</th>
+                        <th>निस्तार</th>
+                    </tr></thead>
+                    <tbody>`;
+
+                grp.items.forEach((r, ri) => {
+                    const isExact = highlightQ && String(r.kn) === highlightQ;
+                    const typeClass = r.type && r.type.includes('असिंचित') ? 'asinchit'
+                        : r.type && r.type.includes('सिंचित') ? 'sinchit' : '';
+                    const typeLabel = r.type && r.type.includes('असिंचित') ? 'असिंचित'
+                        : r.type && r.type.includes('सिंचित') ? 'सिंचित' : '—';
+                    const ownerShort = (r.ownerNames && r.ownerNames[0] && r.ownerNames[0] !== 'अज्ञात')
+                        ? r.ownerNames[0].substring(0, 24) + (r.ownerNames[0].length > 24 ? '…' : '')
+                        : '—';
+
+                    // Fasal info
+                    let fasalHtml = '';
+                    const kf = (r.finalKharifCrop || '').trim();
+                    const rf = (r.finalRabiCrop || '').trim();
+                    if (kf) fasalHtml += `<span class="ak-fasal-tag ak-fasal-kharif" title="खरीफ: ${kf}">☀️ ${kf.substring(0,20)}${kf.length>20?'…':''}</span>`;
+                    if (rf) fasalHtml += `<span class="ak-fasal-tag ak-fasal-rabi" title="रबी: ${rf}">❄️ ${rf.substring(0,20)}${rf.length>20?'…':''}</span>`;
+                    if (r.isDufasali) fasalHtml += `<span class="ak-fasal-tag ak-fasal-dufasali">🌱 दुफसली</span>`;
+                    if (!fasalHtml) fasalHtml = `<span style="color:#94a3b8;font-size:11px;">—</span>`;
+
+                    // Nistar info
+                    const nistarVal = (r.nistar || r.nistarPatrakVivaran || '').trim();
+                    let nistarHtml = '';
+                    if (r.isNistarEntry && nistarVal) {
+                        nistarHtml = `<span class="ak-nistar-badge" title="${nistarVal}">📜 ${nistarVal.substring(0,30)}${nistarVal.length>30?'…':''}</span>`;
+                    } else if (nistarVal) {
+                        nistarHtml = `<span class="ak-nistar-text" title="${nistarVal}">${nistarVal.substring(0,40)}${nistarVal.length>40?'…':''}</span>`;
+                    } else {
+                        nistarHtml = `<span style="color:#94a3b8;font-size:11px;">—</span>`;
+                    }
+
+                    html += `<tr class="ak-row" onclick="akChipClick('${String(r.kn).replace(/'/g, "\\\'")}','${String(r.v).replace(/'/g, "\\\'")}')" style="--ak-accent:${accent};">
+                        <td style="border-left:0 solid transparent;">
+                            <div style="display:flex;align-items:center;gap:8px;">
+                                <span style="font-size:11px;color:#94a3b8;font-weight:600;min-width:20px;">${ri + 1}</span>
+                                <span class="ak-kn-badge${isExact ? ' highlight' : ''}">${r.kn}</span>
+                            </div>
+                        </td>
+                        <td><span class="ak-area-text">${r.area}</span><span class="ak-area-unit">हे.</span></td>
+                        <td>${typeClass ? `<span class="ak-type-pill ${typeClass}">${typeLabel}</span>` : `<span style="color:#94a3b8;font-size:12px;">—</span>`}</td>
+                        <td><span class="ak-owner-text" title="${ownerShort}">${ownerShort}</span></td>
+                        <td>${fasalHtml}</td>
+                        <td>${nistarHtml}</td>
+                    </tr>`;
+                });
+
+                html += `</tbody></table></div></div>`;
+            });
+
+            gridContainer.innerHTML = html;
+
+            // If searching, auto-expand all groups; otherwise collapse only if > 3 groups
+            if (isSearching) {
+                // all expanded by default (no max-height restriction)
+                sortedGroups.forEach(grp => {
+                    const body = document.getElementById(`akGrp_${grp.start}`);
+                    if (body) body.style.maxHeight = body.scrollHeight + 'px';
+                });
+            } else {
+                sortedGroups.forEach((grp, gi) => {
+                    const body = document.getElementById(`akGrp_${grp.start}`);
+                    const chev = document.getElementById(`chev_akGrp_${grp.start}`);
+                    if (body) {
+                        if (sortedGroups.length <= 3 || gi === 0) {
+                            body.style.maxHeight = body.scrollHeight + 'px';
+                        } else {
+                            body.style.maxHeight = '0px';
+                            if (chev) chev.classList.add('collapsed');
+                        }
+                    }
+                });
+            }
+        }
+
+        function toggleAkGroup(gId) {
+            const body = document.getElementById(gId);
+            const chev = document.getElementById('chev_' + gId);
+            if (!body) return;
+            const isOpen = body.style.maxHeight && body.style.maxHeight !== '0px';
+            if (isOpen) {
+                body.style.maxHeight = '0px';
+                if (chev) chev.classList.add('collapsed');
+            } else {
+                body.style.maxHeight = body.scrollHeight + 'px';
+                if (chev) chev.classList.remove('collapsed');
+            }
+        }
+
+        // Clicking a row navigates to Khasra search tab and auto-searches
+        function akChipClick(kn, village) {
+            switchTab('khasra');
+            const villageInput = document.getElementById('villageInput');
+            villageInput.value = village;
+            villageInput.dispatchEvent(new Event('change'));
+            setTimeout(() => {
+                document.getElementById('khasraVal').value = kn;
+                handleSearch(new Event('submit'));
+            }, 150);
         }
 
         // ── Init ──────────────────────────────────────
