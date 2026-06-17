@@ -4570,22 +4570,32 @@ ${uniqueBasras ? `<p style="text-align:center;font-size:13px;margin-top:-15px;ma
                     </tr></thead>
                     <tbody>`;
 
+                const escapeHtml = (unsafe) => {
+                    return (unsafe || '').toString()
+                         .replace(/&/g, "&amp;")
+                         .replace(/</g, "&lt;")
+                         .replace(/>/g, "&gt;")
+                         .replace(/"/g, "&quot;")
+                         .replace(/'/g, "&#039;");
+                };
+
                 grp.items.forEach((r, ri) => {
                     const isExact = highlightQ && String(r.kn) === highlightQ;
                     const typeClass = r.type && r.type.includes('असिंचित') ? 'asinchit'
                         : r.type && r.type.includes('सिंचित') ? 'sinchit' : '';
                     const typeLabel = r.type && r.type.includes('असिंचित') ? 'असिंचित'
                         : r.type && r.type.includes('सिंचित') ? 'सिंचित' : '—';
-                    const ownerShort = (r.ownerNames && r.ownerNames[0] && r.ownerNames[0] !== 'अज्ञात')
+                    let ownerShort = (r.ownerNames && r.ownerNames[0] && r.ownerNames[0] !== 'अज्ञात')
                         ? r.ownerNames[0].substring(0, 24) + (r.ownerNames[0].length > 24 ? '…' : '')
                         : '—';
+                    ownerShort = escapeHtml(ownerShort);
 
                     // Fasal info
                     let fasalHtml = '';
                     const kf = (r.finalKharifCrop || '').trim();
                     const rf = (r.finalRabiCrop || '').trim();
-                    if (kf) fasalHtml += `<span class="ak-fasal-tag ak-fasal-kharif" title="खरीफ: ${kf}">☀️ ${kf.substring(0,20)}${kf.length>20?'…':''}</span>`;
-                    if (rf) fasalHtml += `<span class="ak-fasal-tag ak-fasal-rabi" title="रबी: ${rf}">❄️ ${rf.substring(0,20)}${rf.length>20?'…':''}</span>`;
+                    if (kf) fasalHtml += `<span class="ak-fasal-tag ak-fasal-kharif" title="खरीफ: ${escapeHtml(kf)}">☀️ ${escapeHtml(kf.substring(0,20))}${kf.length>20?'…':''}</span>`;
+                    if (rf) fasalHtml += `<span class="ak-fasal-tag ak-fasal-rabi" title="रबी: ${escapeHtml(rf)}">❄️ ${escapeHtml(rf.substring(0,20))}${rf.length>20?'…':''}</span>`;
                     if (r.isDufasali) fasalHtml += `<span class="ak-fasal-tag ak-fasal-dufasali">🌱 दुफसली</span>`;
                     if (!fasalHtml) fasalHtml = `<span style="color:#94a3b8;font-size:11px;">—</span>`;
 
@@ -4593,9 +4603,9 @@ ${uniqueBasras ? `<p style="text-align:center;font-size:13px;margin-top:-15px;ma
                     const nistarVal = (r.nistar || r.nistarPatrakVivaran || '').trim();
                     let nistarHtml = '';
                     if (r.isNistarEntry && nistarVal) {
-                        nistarHtml = `<span class="ak-nistar-badge" title="${nistarVal}">📜 ${nistarVal.substring(0,30)}${nistarVal.length>30?'…':''}</span>`;
+                        nistarHtml = `<span class="ak-nistar-badge" title="${escapeHtml(nistarVal)}">📜 ${escapeHtml(nistarVal.substring(0,30))}${nistarVal.length>30?'…':''}</span>`;
                     } else if (nistarVal) {
-                        nistarHtml = `<span class="ak-nistar-text" title="${nistarVal}">${nistarVal.substring(0,40)}${nistarVal.length>40?'…':''}</span>`;
+                        nistarHtml = `<span class="ak-nistar-text" title="${escapeHtml(nistarVal)}">${escapeHtml(nistarVal.substring(0,40))}${nistarVal.length>40?'…':''}</span>`;
                     } else {
                         nistarHtml = `<span style="color:#94a3b8;font-size:11px;">—</span>`;
                     }
