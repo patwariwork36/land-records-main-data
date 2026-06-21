@@ -520,7 +520,7 @@
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; border-top:1px solid var(--border); padding-top:12px;">
             <div>
               <div style="font-size:10px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.07em; margin-bottom:4px;">क्षेत्रफल (हे.)</div>
-              <div style="font-size:18px; font-weight:900; color:var(--text-main);">${r.area}</div>
+              <div style="font-size:18px; font-weight:900; color:var(--text-main);">${r.area} <span style="font-size:12px;font-weight:normal;color:#64748b;">(${(parseFloat(r.area || 0) * 2.47105).toFixed(2)} एकड़)</span></div>
             </div>
             <div>
               <div style="font-size:10px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.07em; margin-bottom:6px;">प्रकार</div>
@@ -641,7 +641,7 @@
   <tr><th>📋 खसरा नंबर</th><td>${r.kn}</td></tr>
   <tr><th>📄 बसरा नंबर</th><td>${r.bn}</td></tr>
   <tr><th>👤 भूमिस्वामी</th><td>${r.owner}</td></tr>
-  <tr><th>📐 क्षेत्रफल (हेक्टेयर)</th><td>${r.area} हे.</td></tr>
+  <tr><th>📐 क्षेत्रफल (हेक्टेयर)</th><td>${r.area} हे. <span style="font-size:11px;color:#64748b;">(${(parseFloat(r.area || 0) * 2.47105).toFixed(2)} एकड़)</span></td></tr>
   <tr><th>🌱 भूमि का प्रकार</th><td>${r.type || '—'}</td></tr>
   <tr><th>🌾 फसल विवरण</th><td>
     ${r.isDufasali ? '<span style="color:#3730a3;font-weight:800;font-size:12px;">(दुफसली)</span> ' : ''}
@@ -673,7 +673,7 @@
                 <td style="text-align:center;font-weight:800;">${i + 1}</td>
                 <td style="font-weight:800;text-align:center;">${r.kn}</td>
                 <td>${r.owner}</td>
-                <td style="text-align:right;font-weight:800;">${r.area}</td>
+                <td style="text-align:right;font-weight:800;">${r.area}<br><span style="font-size:11px;font-weight:normal;color:#64748b;">(${(parseFloat(r.area || 0) * 2.47105).toFixed(2)} एकड़)</span></td>
                 <td>${r.type || '—'}</td>
                 <td>
                   ${r.isDufasali ? '<span style="color:#3730a3;font-weight:800;font-size:11px;">(दुफसली)</span><br>' : ''}
@@ -759,7 +759,7 @@
                 <td style="text-align:center;font-weight:800;">${i + 1}</td>
                 <td style="font-weight:800;text-align:center;">${r.kn}</td>
                 <td style="text-align:center;">${r.bn}</td>
-                <td style="text-align:right;font-weight:800;">${r.area}</td>
+                <td style="text-align:right;font-weight:800;">${r.area}<br><span style="font-size:11px;font-weight:normal;color:#64748b;">(${(parseFloat(r.area || 0) * 2.47105).toFixed(2)} एकड़)</span></td>
                 <td>${r.type || '—'}</td>
                 <td>${r.isDufasali ? '<span style="color:#3730a3;font-weight:800;font-size:11px;">(दुफसली)</span><br>' : ''}${r.cropName || (r.kharifCrop || r.rabiCrop ? [r.kharifCrop, r.rabiCrop].filter(Boolean).join(' + ') : '—')}</td>
                 <td>${r.naArea || '—'}</td>
@@ -1945,7 +1945,7 @@ ${uniqueBasras ? `<p style="text-align:center;font-size:13px;margin-top:-15px;ma
                     <td style="padding:14px 16px; font-weight:800; color:var(--text-muted);">${idx + 1}</td>
                     <td style="padding:14px 16px; font-weight:800; color:var(--royal);">${r.kn}</td>
                     <td style="padding:14px 16px; font-weight:600;">${r.bn || '—'}</td>
-                    <td style="padding:14px 16px; font-weight:800; text-align:right;">${r.area}</td>
+                    <td style="padding:14px 16px; font-weight:800; text-align:right;">${r.area}<br><span style="font-size:11px;font-weight:normal;color:#64748b;">(${(parseFloat(r.area || 0) * 2.47105).toFixed(2)} एकड़)</span></td>
                     <td style="padding:14px 16px; font-weight:700; color:var(--text-main);">${r.owner}</td>
                     <td style="padding:14px 16px; font-size:13px; color:var(--text-muted); max-width:250px;">${r.nistar || '—'}</td>
                 `;
@@ -1991,7 +1991,7 @@ ${uniqueBasras ? `<p style="text-align:center;font-size:13px;margin-top:-15px;ma
                 <td style="text-align:center;font-weight:800;">${i + 1}</td>
                 <td style="font-weight:800;text-align:center;">${r.kn}</td>
                 <td style="text-align:center;">${r.bn || '—'}</td>
-                <td style="text-align:right;font-weight:800;">${r.area}</td>
+                <td style="text-align:right;font-weight:800;">${r.area}<br><span style="font-size:11px;font-weight:normal;color:#64748b;">(${(parseFloat(r.area || 0) * 2.47105).toFixed(2)} एकड़)</span></td>
                 <td>${r.owner}</td>
                 <td style="font-size:12px;">${r.nistar || '—'}</td>
               </tr>`).join('');
