@@ -830,6 +830,7 @@
             width: 100%;
             border-collapse: collapse;
             min-width: 850px;
+            table-layout: fixed;
         }
         .ak-table thead th {
             padding: 10px 14px;
@@ -843,22 +844,12 @@
             text-align: left;
             white-space: nowrap;
         }
-        .ak-table thead th:first-child { padding-left: 20px; }
         .ak-row {
             cursor: pointer;
             transition: all 0.18s;
-            position: relative;
         }
-        .ak-row::before {
-            content: '';
-            position: absolute;
-            left: 0; top: 0; bottom: 0;
-            width: 0;
-            transition: width 0.2s;
-            border-radius: 0;
-        }
-        .ak-row:hover::before {
-            width: 4px;
+        .ak-row:hover td:first-child {
+            box-shadow: inset 4px 0 0 var(--ak-accent, #2d2db0);
         }
         .ak-row:nth-child(even) { background: #fafbff; }
         .ak-row:hover {
@@ -871,7 +862,6 @@
             border-bottom: 1px solid #f1f5f9;
             vertical-align: middle;
         }
-        .ak-row td:first-child { padding-left: 20px; }
 
         /* Khasra Number Badge */
         .ak-kn-badge {
@@ -1040,9 +1030,9 @@
     <div class="header-gold-bar"></div>
     <header class="site-header">
         <div style="max-width:900px; margin:0 auto; padding:clamp(16px,4vw,28px) clamp(12px,3vw,24px);">
-            <div style="display:flex; align-items:center; gap:clamp(8px,2vw,16px); flex-wrap:wrap;">
-                <div class="emblem">🌾</div>
-                <div style="flex:1; min-width:min(200px,55vw);">
+            <div style="display:flex; flex-direction:column; align-items:center; text-align:center; gap:clamp(8px,2vw,12px);">
+                <div class="emblem" style="margin-bottom:4px;">🌾</div>
+                <div>
                     <div
                         style="font-size:12px; color:rgba(255,255,255,0.55); font-weight:600; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:4px;">
                         छत्तीसगढ़ शासन – राजस्व विभाग
@@ -1051,17 +1041,16 @@
                         style="font-size:clamp(20px,4vw,30px); font-weight:900; color:#fff; line-height:1.1; font-family:'Noto Sans Devanagari',sans-serif;">
                         भूमि रिकॉर्ड खोज प्रणाली
                     </h1>
-                    <div style="margin-top:4px; font-size:clamp(14px,2.5vw,18px); color:#e2e8f0; font-weight:700; font-family:'Noto Sans Devanagari',sans-serif;">
+                    <div style="margin-top:6px; font-size:clamp(14px,2.5vw,18px); color:#e2e8f0; font-weight:700; font-family:'Noto Sans Devanagari',sans-serif;">
                         तहसील पलारी जिला बलौदाबाज़ार-भाटापारा छ०ग०
                     </div>
-                    <div style="margin-top:4px; font-size:14px; color:var(--gold-light); font-weight:600;">
+                    <div style="margin-top:6px; font-size:14px; color:var(--gold-light); font-weight:600;">
                         हल्का 43 एवं 28 — ग्रामवार खसरा / बसरा सूची
                     </div>
                 </div>
-                <div
-                    style="text-align:right; display:flex; flex-direction:column; gap:4px; color:rgba(255,255,255,0.6); font-size:12px;">
+                <div style="margin-top:8px;">
                     <span id="recordCountBadge"
-                        style="background:rgba(255,255,255,0.10); border:1px solid rgba(255,255,255,0.20); border-radius:8px; padding:6px 14px; font-weight:700; color:#fff; font-size:13px;">
+                        style="background:rgba(255,255,255,0.10); border:1px solid rgba(255,255,255,0.20); border-radius:8px; padding:6px 14px; font-weight:700; color:#fff; font-size:13px; display:inline-block;">
                         डेटा लोड हो रहा है...
                     </span>
                 </div>
@@ -4562,12 +4551,13 @@ ${uniqueBasras ? `<p style="text-align:center;font-size:13px;margin-top:-15px;ma
                          <div class="ak-table-wrapper">
                          <table class="ak-table">
                     <thead><tr>
-                        <th style="width:12%;">खसरा नं.</th>
-                        <th style="width:12%;">क्षेत्रफल</th>
-                        <th style="width:10%;">प्रकार</th>
-                        <th style="width:25%;">भूमिस्वामी</th>
-                        <th style="width:20%;">फसल</th>
-                        <th style="width:21%;">निस्तार</th>
+                        <th style="width:6%; text-align:center;">क्र.</th>
+                        <th style="width:12%; text-align:center;">खसरा नं.</th>
+                        <th style="width:10%; text-align:center;">क्षेत्रफल</th>
+                        <th style="width:10%; text-align:center;">प्रकार</th>
+                        <th style="width:24%; text-align:left;">भूमिस्वामी</th>
+                        <th style="width:20%; text-align:left;">फसल</th>
+                        <th style="width:18%; text-align:left;">निस्तार</th>
                     </tr></thead>
                     <tbody>`;
 
@@ -4612,17 +4602,17 @@ ${uniqueBasras ? `<p style="text-align:center;font-size:13px;margin-top:-15px;ma
                     }
 
                     html += `<tr class="ak-row" onclick="akChipClick('${String(r.kn).replace(/'/g, "\\\'")}','${String(r.v).replace(/'/g, "\\\'")}')" style="--ak-accent:${accent};">
-                        <td style="border-left:0 solid transparent;">
-                            <div style="display:flex;align-items:center;gap:8px;">
-                                <span style="font-size:11px;color:#94a3b8;font-weight:600;min-width:20px;">${ri + 1}</span>
-                                <span class="ak-kn-badge${isExact ? ' highlight' : ''}">${r.kn}</span>
-                            </div>
+                        <td style="text-align:center;">
+                            <span style="font-size:11px;color:#94a3b8;font-weight:600;">${ri + 1}</span>
                         </td>
-                        <td><span class="ak-area-text">${r.area}</span> <span class="ak-area-unit">हे.</span></td>
-                        <td>${typeClass ? `<span class="ak-type-pill ${typeClass}">${typeLabel}</span>` : `<span style="color:#94a3b8;font-size:12px;">—</span>`}</td>
-                        <td><span class="ak-owner-text" title="${ownerShort}">${ownerShort}</span></td>
-                        <td>${fasalHtml}</td>
-                        <td>${nistarHtml}</td>
+                        <td style="text-align:center;">
+                            <span class="ak-kn-badge${isExact ? ' highlight' : ''}">${r.kn}</span>
+                        </td>
+                        <td style="text-align:center;"><span class="ak-area-text">${r.area}</span> <span class="ak-area-unit">हे.</span></td>
+                        <td style="text-align:center;">${typeClass ? `<span class="ak-type-pill ${typeClass}">${typeLabel}</span>` : `<span style="color:#94a3b8;font-size:12px;">—</span>`}</td>
+                        <td style="text-align:left;"><span class="ak-owner-text" title="${ownerShort}">${ownerShort}</span></td>
+                        <td style="text-align:left;">${fasalHtml}</td>
+                        <td style="text-align:left;">${nistarHtml}</td>
                     </tr>`;
                 });
 
