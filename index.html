@@ -2311,28 +2311,22 @@
         <div style="padding:18px 20px; display:flex; flex-direction:column; gap:14px;">
           ${getLandDetailBadgesHTML(r)}
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
-            <div class="stat-chip">
-              <div class="stat-chip-label">खसरा नं.</div>
-              <div class="stat-chip-val">${r.kn}</div>
+            <div class="stat-chip" style="text-align:center;">
+              <div class="stat-chip-label" style="font-size:12px; font-weight:800;">खसरा नं.</div>
+              <div class="stat-chip-val" style="font-size:22px; font-weight:900;">${r.kn}</div>
             </div>
-            <div class="stat-chip">
-              <div class="stat-chip-label">बसरा नं.</div>
-              <div class="stat-chip-val">${r.bn}</div>
+            <div class="stat-chip" style="text-align:center;">
+              <div class="stat-chip-label" style="font-size:12px; font-weight:800;">क्षेत्रफल (हे.)</div>
+              <div class="stat-chip-val" style="font-size:20px; font-weight:900;">${r.area} <span style="font-size:11px;font-weight:600;color:#64748b;">(${(parseFloat(r.area || 0) * 2.47105).toFixed(2)} एकड़)</span></div>
             </div>
           </div>
           <div style="border-top:1px solid var(--border); padding-top:12px;">
             <div style="font-size:10px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.07em; margin-bottom:6px;">भूमिस्वामी</div>
             <div style="font-size:14px; font-weight:700; color:var(--text-main); line-height:1.4;">${getFullOwner(r)}</div>
           </div>
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; border-top:1px solid var(--border); padding-top:12px;">
-            <div>
-              <div style="font-size:10px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.07em; margin-bottom:4px;">क्षेत्रफल (हे.)</div>
-              <div style="font-size:18px; font-weight:900; color:var(--text-main);">${r.area} <span style="font-size:12px;font-weight:normal;color:#64748b;">(${(parseFloat(r.area || 0) * 2.47105).toFixed(2)} एकड़)</span></div>
-            </div>
-            <div>
+          <div style="border-top:1px solid var(--border); padding-top:12px;">
               <div style="font-size:10px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.07em; margin-bottom:6px;">प्रकार</div>
               <span class="type-badge ${typeBadge}">${r.type || '—'}</span>
-            </div>
           </div>
           
           <div style="border-top:1px solid var(--border); padding-top:12px;">
